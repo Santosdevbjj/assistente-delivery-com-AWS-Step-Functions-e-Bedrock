@@ -1,13 +1,8 @@
-## Criando um Assistente de Delivery com AWS Step Functions e Bedrock.
+## 🚚 Assistente de Delivery Autônomo com AWS Step Functions & Amazon Bedrock
 
-<img width="120" height="120" alt="1000128962" src="https://github.com/user-attachments/assets/d786c91f-cd61-4bd7-9a27-1f8cc0ec4c5b" />
-
-
-Bootcamp - AWS - Agentes de IA em Campo
----
+<img width="120" height="120" alt="1000128962" src="https://github.com/user-attachments/assets/d786c91f-cd61-4bd7-9a27-1f8cc0ec4c5b" /> 
 
 
-# 🚚 Assistente de Delivery Autônomo com AWS Step Functions & Amazon Bedrock
 
 [![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
 [![Serverless](https://img.shields.io/badge/Serverless-FF9900?style=for-the-badge&logo=serverless&logoColor=white)](https://aws.amazon.com/serverless/)
@@ -41,6 +36,7 @@ O fluxo segue a lógica sequencial e paralela descrita no diagrama abaixo:
 
 ---
 
+```
 
 [Pedido Recebido] ──> [Validação Cognitiva via Bedrock]
 │
@@ -56,6 +52,7 @@ O fluxo segue a lógica sequencial e paralela descrita no diagrama abaixo:
 [Pedido Entregue]
 
 
+```
 
 ---
 
