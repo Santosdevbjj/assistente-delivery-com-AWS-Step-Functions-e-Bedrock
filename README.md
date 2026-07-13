@@ -130,7 +130,6 @@ Projeção de custo mensal para o cenário de referência (1.000.000 de pedidos/
 
 ---
 
-> Resolver problemas com a ferramenta é diferente de apenas usar a ferramenta. O mercado não contrata ferramenta — contrata quem resolve problemas.
 
 ## 👤 Autor
 
