@@ -1,6 +1,6 @@
 # 🛡️ Política de Proteção de Branch e Governança de Código (CI/CD)
 
-Este documento descreve as regras de proteção aplicadas à branch `main` deste repositório, garantindo conformidade com padrões de engenharia de nível **FAANG**.
+Este documento descreve as regras de proteção aplicadas à branch `main` deste repositório, garantindo conformidade com padrões de engenharia de nível **profissional**.
 
 ## 🚀 Regras Ativas na Interface do GitHub
 
@@ -12,5 +12,5 @@ Para mitigar erros em produção, alterações na infraestrutura de IA e orquest
 
 ## 🎯 Impacto no Negócio & Engenharia
 
-* **Maturidade de Processo (Luiz Café Style):** Evita que códigos de teste alterem prompts de produção ou tabelas de precificação sem validação técnica de pares.
-* **Estabilidade do Pipeline (Meigarom Lopes Style):** Garante que o schema de validação (`user_validation.json`) e a máquina de estados em ASL fiquem idênticos ao baseline homologado, blindando as métricas financeiras do negócio contra deploy quebrado.
+* **Maturidade de Processo:** Evita que códigos de teste alterem prompts de produção ou tabelas de precificação sem validação técnica de pares.
+* **Estabilidade do Pipeline:** Garante que o schema de validação (`user_validation.json`) e a máquina de estados em ASL fiquem idênticos ao baseline homologado, blindando as métricas financeiras do negócio contra deploy quebrado.
