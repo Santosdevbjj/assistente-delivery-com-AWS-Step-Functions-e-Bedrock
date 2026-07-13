@@ -8,6 +8,8 @@ Bootcamp - AWS - Agentes de IA em Campo
 
 ---
 
+```
+
 ├── README.md                          # Documentação executiva e técnica (Narrativa Framework CDS)
 ├── .github/
 │   └── CODEOWNERS                     # Governança do repositório
@@ -26,6 +28,9 @@ Bootcamp - AWS - Agentes de IA em Campo
     ├── payload_valid_order.json       # Massa de dados para teste (Fluxo de sucesso)
     └── payload_invalid_payment.json   # Massa de dados para teste (Fluxo de falha)
 
+```
+
+---
 
 
 
