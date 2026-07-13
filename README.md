@@ -13,6 +13,107 @@ Neste desafio prático, você será responsável por criar um Assistente de Deli
 
 ---
 
+Assistente de Delivery com AWS Step Functions e Amazon Bedrock
+
+Projeto desenvolvido para demonstrar a construção de um assistente inteligente de delivery utilizando AWS Step Functions para orquestração de processos e Amazon Bedrock para personalização com IA Generativa.
+
+Visão Geral
+
+O sistema automatiza o fluxo de pedidos de delivery, desde a recepção do pedido até a entrega final, garantindo validação, processamento de pagamento, atualização de status e comunicação inteligente com o cliente.
+
+Problema de Negócio
+
+Empresas de delivery precisam processar pedidos de forma rápida, segura e escalável. Processos manuais podem gerar atrasos, falhas de comunicação, erros de pagamento e baixa satisfação do cliente.
+
+Objetivo do Projeto
+
+Criar uma arquitetura serverless na AWS que:
+
+- Receba e valide pedidos de delivery.
+- Orquestre o fluxo completo do pedido com AWS Step Functions.
+- Utilize Amazon Bedrock para gerar respostas personalizadas ao cliente.
+- Atualize o status do pedido em cada etapa do processo.
+- Demonstre boas práticas de segurança, escalabilidade e observabilidade.
+
+Arquitetura da Solução
+
+O fluxo principal é composto por:
+
+1. Recepção do pedido via API ou evento.
+2. Validação do pedido por função AWS Lambda.
+3. Processamento de pagamento.
+4. Atualização do status do pedido.
+5. Uso do Amazon Bedrock para gerar mensagens personalizadas.
+6. Notificação do cliente sobre o andamento do pedido.
+
+Tecnologias Utilizadas
+
+- AWS Step Functions
+- AWS Lambda
+- Amazon Bedrock
+- Amazon API Gateway
+- Amazon DynamoDB
+- Amazon SNS
+- AWS IAM
+- AWS CloudWatch
+- AWS CloudFormation
+- Python 3.12
+
+Estrutura do Repositório
+
+Veja a organização completa das pastas na seção de estrutura do repositório.
+
+Como Executar
+
+Pré-requisitos
+
+- Conta AWS ativa
+- AWS CLI configurado
+- Permissões para Step Functions, Lambda, Bedrock, DynamoDB e SNS
+- Python 3.12
+
+Deploy da infraestrutura
+
+cd infrastructure/cloudformation
+aws cloudformation deploy \
+  --template-file stack.yaml \
+  --stack-name assistente-delivery \
+  --capabilities CAPABILITY_NAMED_IAM
+
+Execução do workflow
+
+aws stepfunctions start-execution \
+  --state-machine-arn ARN_DA_STATE_MACHINE \
+  --input file://step-functions/exemplos/pedido-valido.json
+
+Decisões Técnicas
+
+- AWS Step Functions foi escolhido pela capacidade de orquestrar fluxos complexos de forma visual e resiliente.
+- Amazon Bedrock foi utilizado para adicionar IA Generativa ao assistente, permitindo respostas mais naturais e contextualizadas.
+- AWS Lambda foi adotado para executar lógica de negócio de forma serverless e escalável.
+- DynamoDB pode ser utilizado para armazenar pedidos e status de execução com baixa latência.
+
+Aprendizados
+
+- Orquestração de fluxos serverless com Step Functions.
+- Integração de IA Generativa com Amazon Bedrock.
+- Implementação de políticas IAM seguras para serviços AWS.
+- Estruturação de projetos cloud com foco em legibilidade e manutenção.
+
+Próximos Passos
+
+- Implementar integração real com provedores de pagamento.
+- Adicionar rastreamento em tempo real da entrega.
+- Criar dashboard de monitoramento com Amazon CloudWatch.
+- Implementar testes automatizados de integração.
+
+Licença
+
+Este projeto está licenciado sob a licença MIT.
+
+
+
+---
 
 
 
