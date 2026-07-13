@@ -1,0 +1,24 @@
+# ##############################################################################
+# FAANG-Scale Code Owners Governance Policy
+# ##############################################################################
+# Cada linha define um padrão de arquivo seguido pelos usuários ou times do GitHub 
+# que devem aprovar revisões de código obrigatoriamente antes do Merge.
+
+# 1. Donos Globais do Repositório (Responsáveis por modificações gerais)
+*                                                 @Santosdevbjj
+
+# 2. Infraestrutura como Código (IaC) e Orquestração
+# Alterações no fluxo do Step Functions exigem validação do Arquiteto Cloud
+/aws-step-functions/                              @Santosdevbjj
+
+# 3. Políticas de Segurança e Acessos (Least Privilege IAM Policies)
+# Mudanças em permissões exigem revisão dupla de SecOps
+/iam-policies/                                    @Santosdevbjj
+
+# 4. Núcleo de Inteligência Artificial Generativa e Prompt Engineering
+# Modificações no comportamento dos LLMs/Agentes precisam de validação de AI/Data Engineers
+/amazon-bedrock/                                  @Santosdevbjj
+/amazon-bedrock/prompt_templates/                @Santosdevbjj
+
+# 5. Pipeline de Testes e Automação de Carga
+/tests/                                           @Santosdevbjj
