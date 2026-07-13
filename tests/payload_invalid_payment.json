@@ -1,0 +1,9 @@
+{
+  "pedido": {
+    "id": "ord_9948211",
+    "cliente": "Gabriel Souza",
+    "descricao": "Quero 1 combo de sushi variado. Deixar na portaria.",
+    "valor_total": 120.50,
+    "metodo_pagamento": "CHEQUE"
+  }
+}
