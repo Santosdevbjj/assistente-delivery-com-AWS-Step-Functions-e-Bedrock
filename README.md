@@ -8,6 +8,12 @@
 [![Serverless](https://img.shields.io/badge/Serverless-FF9900?style=for-the-badge&logo=serverless&logoColor=white)](https://aws.amazon.com/serverless/)
 [![Generative AI](https://img.shields.io/badge/GenAI-Amazon_Bedrock-blue?style=for-the-badge)](https://aws.amazon.com/bedrock/)
 
+--
+
+## DESCRIÇÃO:
+
+Neste desafio prático, você será responsável por criar um Assistente de Delivery utilizando AWS Step Functions e Amazon Bedrock. O projeto consiste em orquestrar diferentes serviços AWS para automatizar e gerenciar um fluxo de pedidos de delivery, desde a recepção do pedido até a entrega final. Utilizando Step Functions, você irá coordenar tarefas como validação de pedidos, integração com serviços de pagamento e atualização de status. O Amazon Bedrock será empregado para aprimorar a personalização e a eficiência do assistente, proporcionando uma experiência otimizada ao cliente.
+
 ---
 
 ## 1. Problema de Negócio
