@@ -1,0 +1,9 @@
+{
+  "pedido": {
+    "id": "ord_9948210",
+    "cliente": "Alex Silva",
+    "descricao": "Por favor, entregar 1 Pizza Margherita grande. Observação: Retirar cebola, sou altamente alérgico.",
+    "valor_total": 54.90,
+    "metodo_pagamento": "PIX"
+  }
+}
