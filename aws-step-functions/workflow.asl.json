@@ -1,0 +1,97 @@
+{
+  "Comment": "Pipeline de Delivery Inteligente de Escala FAANG utilizando Amazon Bedrock e Step Functions",
+  "StartAt": "AnaliseCognitivaPedido",
+  "States": {
+    "AnaliseCognitivaPedido": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::bedrock:invokeModel",
+      "Parameters": {
+        "ModelId": "amazon.nova-lite-v1:0",
+        "Body": {
+          "inferenceConfig": {
+            "maxNewTokens": 200,
+            "temperature": 0.2
+          },
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "text": "Analise o seguinte pedido de delivery quanto a restrições e valide se o tom do cliente exige prioridade operacional. Retorne um JSON com os campos 'aprovado' (true/false) e 'motivo'. Pedido: $.pedido.descricao"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "ResultPath": "$.ResultadoAnalise",
+      "Next": "AvaliaAprovacao"
+    },
+    "AvaliaAprovacao": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.ResultadoAnalise.Body.output.message.content[0].text.aprovado",
+          "BooleanEquals": true,
+          "Next": "ProcessamentoParaleloLogisticaNotificacao"
+        }
+      ],
+      "Default": "RejeitarPedido"
+    },
+    "ProcessamentoParaleloLogisticaNotificacao": {
+      "Type": "Parallel",
+      "Next": "FinalizarPedidoSucesso",
+      "Branches": [
+        {
+          "StartAt": "DespacharLogistica",
+          "States": {
+            "DespacharLogistica": {
+              "Type": "Pass",
+              "Result": {
+                "Status": "Enviado para a transportadora mais próxima"
+              },
+              "End": true
+            }
+          }
+        },
+        {
+          "StartAt": "GerarNotificacaoPersonalizada",
+          "States": {
+            "GerarNotificacaoPersonalizada": {
+              "Type": "Task",
+              "Resource": "arn:aws:states:::bedrock:invokeModel",
+              "Parameters": {
+                "ModelId": "amazon.nova-lite-v1:0",
+                "Body": {
+                  "inferenceConfig": {
+                    "maxNewTokens": 150,
+                    "temperature": 0.7
+                  },
+                  "messages": [
+                    {
+                      "role": "user",
+                      "content": [
+                        {
+                          "text": "Escreva uma mensagem de confirmação de entrega muito simpática e curta para o cliente. Nome: $.pedido.cliente"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "End": true
+            }
+          }
+        }
+      ]
+    },
+    "RejeitarPedido": {
+      "Type": "Fail",
+      "Error": "PedidoInvalidoException",
+      "Cause": "O pedido falhou na análise cognitiva de risco ou validação de parâmetros."
+    },
+    "FinalizarPedidoSucesso": {
+      "Type": "Succeed"
+    }
+  }
+}
