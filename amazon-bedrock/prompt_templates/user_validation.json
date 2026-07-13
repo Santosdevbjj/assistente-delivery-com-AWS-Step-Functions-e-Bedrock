@@ -1,0 +1,35 @@
+{
+  "$schema": "[https://json-schema.org/draft/2020-12/schema](https://json-schema.org/draft/2020-12/schema)",
+  "title": "UserDeliveryInputValidation",
+  "description": "Schema de validação estruturada para a carga de entrada do usuário no Amazon Bedrock",
+  "type": "object",
+  "properties": {
+    "pedido": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^ord_[a-zA-Z0-9]+$"
+        },
+        "cliente": {
+          "type": "string",
+          "minLength": 2
+        },
+        "descricao": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "valor_total": {
+          "type": "number",
+          "minimum": 0.0
+        },
+        "metodo_pagamento": {
+          "type": "string",
+          "enum": ["PIX", "CREDIT_CARD", "DEBIT_CARD", "VOUCHER"]
+        }
+      },
+      "required": ["id", "cliente", "descricao", "valor_total", "metodo_pagamento"]
+    }
+  },
+  "required": ["pedido"]
+}
