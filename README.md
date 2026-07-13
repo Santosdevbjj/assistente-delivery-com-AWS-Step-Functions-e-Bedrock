@@ -10,7 +10,7 @@ Bootcamp - AWS - Agentes de IA em Campo
 
 ```
 
-├── README.md                          # Documentação executiva e técnica (Narrativa Framework CDS)
+├──                                                 # Documentação executiva e técnica (Narrativa Framework CDS)
 ├── .github/
 │   └── CODEOWNERS                     # Governança do repositório
 ├── amazon-bedrock/
